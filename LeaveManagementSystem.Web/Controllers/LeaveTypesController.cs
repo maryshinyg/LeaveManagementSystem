@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using LeaveManagementSystem.Web.Models.LeaveTypes;
+﻿using LeaveManagementSystem.Web.Models.LeaveTypes;
 using LeaveManagementSystem.Web.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace LeaveManagementSystem.Web.Controllers
 {
+    [Authorize(Roles = Roles.Administrator)]
     public class LeaveTypesController(ILeaveTypeService _leaveTypeSerice) : Controller //added DI by adding the constructor parameter to the class declaration
     {
         private const string NameExistValidationError = "This name already exists in the database";
@@ -12,7 +12,7 @@ namespace LeaveManagementSystem.Web.Controllers
         // GET: LeaveTypes
         public async Task<IActionResult> Index()
         {
-           var leaveTypesVM = await _leaveTypeSerice.GetAll();
+            var leaveTypesVM = await _leaveTypeSerice.GetAll();
             return View(leaveTypesVM);
         }
 
