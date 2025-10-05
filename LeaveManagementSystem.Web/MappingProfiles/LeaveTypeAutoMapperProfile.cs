@@ -4,9 +4,9 @@ using LeaveManagementSystem.Web.Models.LeaveTypes;
 
 namespace LeaveManagementSystem.Web.MappingProfiles
 {
-    public class AutoMapperProfile : Profile
+    public class LeaveTypeAutoMapperProfile : Profile
     {
-        public AutoMapperProfile() {
+        public LeaveTypeAutoMapperProfile() {
 
             // Define your AutoMapper configurations here
             // Example:

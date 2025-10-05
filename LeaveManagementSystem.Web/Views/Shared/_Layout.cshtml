@@ -27,8 +27,21 @@
                         </li>
                         @if (User.IsInRole(Roles.Administrator))
                         {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Management
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" asp-controller="LeaveTypes" asp-action="Index">Leave Type</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="Periods" asp-action="Index">Periods</a></li>
+                                    <li><a class="dropdown-item text-dark" asp-controller="LeaveAllocation" asp-action="Index">View Employees</a></li>
+                                </ul>
+                            </li>
+                        }
+                        @if(User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="LeaveTypes" asp-action="Index">Leave Types</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="LeaveAllocation" asp-action="Details">View Allocations</a>
                             </li>
                         }
                     </ul>
